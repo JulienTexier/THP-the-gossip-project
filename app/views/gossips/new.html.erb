@@ -1,36 +1,30 @@
-<html>
-  <body>
-    <% if @gossip.errors.any? %>
-      <div class="alert alert-danger" role="alert">
-        <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-        <ul>
-          <% @gossip.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class='container'>
-      <br>
-      <%= form_tag url_for(action: 'create'), method: "post" do %>
-
-        <%= label_tag 'Titre' %>
-        <%= text_field_tag 'title', '', class: "form-control", placeholder:"Entre le titre ici !" %>
-        <br>
-
-        <%= label_tag 'Gossip' %>
-        <%= text_area_tag 'content', '', class: "form-control", placeholder:"Entre le gossip ici !" %>
-        <br>
-        <%= label_tag 'Tag' %>
-        <%= select_tag "tag", options_from_collection_for_select(@tags, "id", "title"), class:"dropdown"%>
-        <br><br>
-
-        <%= submit_tag "Créer ton potin", class: "btn btn-primary" %>
-
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </div>
+    </ul>
+  </div>
+<% end %>
 
+<div class='container'>
+  <br>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
 
-  </body>
-</html>
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', '', class: "form-control", placeholder:"Entre le titre ici !" %>
+    <br>
+
+    <%= label_tag 'Gossip' %>
+    <%= text_area_tag 'content', '', class: "form-control", placeholder:"Entre le gossip ici !" %>
+    <br>
+    <%= label_tag 'Tag' %>
+    <%= select_tag "tag", options_from_collection_for_select(@tags, "id", "title"), class:"dropdown"%>
+    <br><br>
+
+    <%= submit_tag "Créer ton potin", class: "btn btn-primary" %>
+
+  <% end %>
+</div>
