@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_091727) do
+ActiveRecord::Schema.define(version: 2019_08_08_113403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,12 +62,16 @@ ActiveRecord::Schema.define(version: 2019_08_07_091727) do
 
   create_table "private_messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "recipient_id"
-    t.bigint "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipient_id"], name: "index_private_messages_on_recipient_id"
-    t.index ["sender_id"], name: "index_private_messages_on_sender_id"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.text "body"
+    t.bigint "content_id"
+    t.index ["content_id"], name: "index_private_messages_on_content_id"
+    t.index ["conversation_id"], name: "index_private_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -86,6 +90,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_091727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
