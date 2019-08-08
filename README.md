@@ -28,5 +28,7 @@ Passwork: thegossipproject
 
 Ou créer votre propre compte avec le login !
 
+Vous pouvez également vous rendre sur https://the-gossip-project-jt.herokuapp.com/ et rajouter vos propres potins une fois inscrits (ou sous le pseudo de John Doe !) 
+
 ENJOY !
 
