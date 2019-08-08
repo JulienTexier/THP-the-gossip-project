@@ -12,7 +12,7 @@ City.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 JoinTableGossipTag.destroy_all
-PrivateMessage.destroy_all
+# PrivateMessage.destroy_all
 Comment.destroy_all
 Like.destroy_all
 
